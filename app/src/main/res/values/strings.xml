@@ -1,13 +1,13 @@
 <resources>
-<!--main-->
+    <!--main-->
     <string name="app_name">MyFinancials</string>
     <string name="income">Income</string>
     <string name="depense">Depenses</string>
     <string name="balance">Balance</string>
-<!--    add new-->
+    <!--    add new-->
     <string name="title_activity_add_new">add_new</string>
     <string name="hint_amount">Amount</string>
-    
+
     <string name="category_prompt">Select a Category</string>
     <string-array name="category_arrays">
         <item>Select a Category</item>
@@ -20,4 +20,21 @@
         <item>Transport</item>
     </string-array>
 
+<!--    chart-->
+    <string name="month_prompt">Select a Month</string>
+    <string-array name="month_arrays">
+        <item>Select a Month</item>
+        <item>Jan</item>
+        <item>Feb</item>
+        <item>Mar</item>
+        <item>Apr</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>Aug</item>
+        <item>Sept</item>
+        <item>Oct</item>
+        <item>Nov</item>
+        <item>Dec</item>
+    </string-array>
 </resources>
