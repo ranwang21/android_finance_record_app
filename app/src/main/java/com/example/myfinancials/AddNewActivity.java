@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Spinner;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -13,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class AddNewActivity extends AppCompatActivity {
 
     FloatingActionButton fabSubmit, fabCancel;
+    Spinner dropdown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class AddNewActivity extends AppCompatActivity {
         this.setContentView(R.layout.activity_add_new);
         setContentView(R.layout.activity_add_new);
 
+        // submit and cancel button
         fabSubmit = findViewById(R.id.fab_submit);
         fabSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,5 +40,8 @@ public class AddNewActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        // drop-down category
+        dropdown = findViewById(R.id.spinner_category);
     }
 }

@@ -9,18 +9,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
+
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/edittext_width"
         android:layout_height="wrap_content"
-        android:hint="User name"
-        android:padding="15dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/rounded_edittext"/>
+        android:hint="@string/hint_amount"
+        android:inputType="numberDecimal"
+        android:layout_gravity="center"
+        android:padding="@dimen/record_padding"
+        android:layout_margin="@dimen/record_margin"
+        android:background="@drawable/rounded_edittext"
+        android:textAlignment="center"/>
 
     <Spinner
-        android:id="@+id/category_spinner"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:id="@+id/spinner_category"
+        android:layout_width="@dimen/edittext_width"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/record_padding"
+        android:layout_margin="@dimen/record_margin"
+        android:layout_gravity="center"
+        android:spinnerMode="dropdown"
+        android:background="@drawable/rounded_spinner"
+        android:prompt="@string/category_prompt"
+
+        android:entries="@array/category_arrays"
+        android:textAlignment="center"
+        />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
