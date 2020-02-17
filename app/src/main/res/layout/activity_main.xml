@@ -21,7 +21,7 @@
                 android:text="@string/income"
                 android:textAlignment="center"
                 android:textColor="#fff"
-                android:textSize="@dimen/main_header_title_fontsize"
+                android:textSize="@dimen/font_size_normal"
                 android:textStyle="bold" />
 
             <TextView
@@ -31,7 +31,7 @@
                 android:text="@string/depense"
                 android:textAlignment="center"
                 android:textColor="#fff"
-                android:textSize="@dimen/main_header_title_fontsize"
+                android:textSize="@dimen/font_size_normal"
                 android:textStyle="bold" />
 
             <TextView
@@ -41,7 +41,7 @@
                 android:text="@string/balance"
                 android:textAlignment="center"
                 android:textColor="#fff"
-                android:textSize="@dimen/main_header_title_fontsize"
+                android:textSize="@dimen/font_size_normal"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -76,8 +76,7 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -93,7 +92,50 @@
                 <include
                     layout="@layout/single_record"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/record_margin" />
+
+                <include
+                    layout="@layout/single_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/record_margin" />
+
+                <include
+                    layout="@layout/single_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/record_margin" />
+
+                <include
+                    layout="@layout/single_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/record_margin" />
+
+                <include
+                    layout="@layout/single_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/record_margin" />
+
+                <include
+                    layout="@layout/single_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/record_margin" />
+
+                <include
+                    layout="@layout/single_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/record_margin" />
+
+                <include
+                    layout="@layout/single_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/record_margin" />
             </LinearLayout>
 
 

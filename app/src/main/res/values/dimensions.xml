@@ -2,7 +2,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="main_header_padding">6dp</dimen>
-    <dimen name="main_header_title_fontsize">16sp</dimen>
+    <dimen name="font_size_normal">16sp</dimen>
     <dimen name="record_padding">6dp</dimen>
     <dimen name="record_margin">12dp</dimen>
 </resources>
