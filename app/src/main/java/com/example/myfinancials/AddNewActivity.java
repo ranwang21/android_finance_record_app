@@ -3,10 +3,16 @@ package com.example.myfinancials;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 public class AddNewActivity extends AppCompatActivity {
+
+    FloatingActionButton fabSubmit, fabCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,5 +21,21 @@ public class AddNewActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.setContentView(R.layout.activity_add_new);
         setContentView(R.layout.activity_add_new);
+
+        fabSubmit = findViewById(R.id.fab_submit);
+        fabSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Record Added", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        fabCancel = findViewById(R.id.fab_cancel);
+        fabCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }
