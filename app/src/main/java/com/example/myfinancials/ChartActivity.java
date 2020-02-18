@@ -34,7 +34,7 @@ public class ChartActivity extends AppCompatActivity {
         pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         PieData pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
-        pieChart.animateXY(5000, 5000);
+        pieChart.animateXY(1000, 1000);
         pieChart.invalidate();
     }
 
