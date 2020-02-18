@@ -4,6 +4,10 @@
     <string name="income">Income</string>
     <string name="depense">Depenses</string>
     <string name="balance">Balance</string>
+    <string name="signin">Sign in</string>
+    <string name="forgotPassword">Forgot Password?</string>
+    <string name="signupwith">Or Signup with</string>
+
     <!--    add new-->
     <string name="title_activity_add_new">add_new</string>
     <string name="hint_amount">Amount</string>
@@ -20,7 +24,7 @@
         <item>Transport</item>
     </string-array>
 
-<!--    chart-->
+    <!--    chart-->
     <string name="month_prompt">Select a Month</string>
     <string-array name="month_arrays">
         <item>Select a Month</item>
