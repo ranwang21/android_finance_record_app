@@ -26,4 +26,255 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_edittext"
+        android:layout_margin="@dimen/fab_margin"
+        android:padding="@dimen/record_padding">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="Charges"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="2000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/font_size_small" />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="Clothes"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="2000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/font_size_small" />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="Entertainment"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="2000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/font_size_small" />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="Food"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="2000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/font_size_small" />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="Installment"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="2000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/font_size_small" />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="Miscellaneous"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="2000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/font_size_small" />
+
+
+        </TableRow>
+
+        <TableRow
+            >
+
+            <TextView
+                android:id="@+id/transport_label"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="Transport"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="2000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/font_size_small" />
+
+
+        </TableRow>
+
+
+        <TableRow android:background="@drawable/underline_tablerow">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="Total Expenses"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="20000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/font_size_small" />
+
+
+        </TableRow>
+
+        <TableRow android:background="@drawable/underline_tablerow">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="Total Income"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="30000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/font_size_small" />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="Balance"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="@dimen/main_header_padding"
+                android:text="3000"
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold"/>
+
+
+        </TableRow>
+
+    </TableLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="@dimen/fab_margin"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/calcel_button" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </LinearLayout>
