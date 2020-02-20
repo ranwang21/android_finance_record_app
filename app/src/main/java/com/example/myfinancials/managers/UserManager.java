@@ -18,26 +18,26 @@ public class UserManager {
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
         Cursor cursor = bd.rawQuery(queryGetAllUsers, null);
         while (cursor.moveToNext()) {
-            users.add(new User(cursor.getInt(0), cursor.getString(1), cursor.getString(2)));
+            users.add(new User(cursor.getString(1), cursor.getString(2)));
         }
         ConnexionBd.close();
         return users;
     }
     // temporary code to test app
-//    public static Boolean checkUserLogin(Context ctx, String email, String password){
-//        return true;
-//    }
-    public static Boolean checkUserLogin(Context ctx, String email, String password) {
-        SQLiteDatabase bd = ConnexionBd.getBd(ctx);
-        Boolean trouve = false;
-        ArrayList<User> users = getAllUsers(ctx);
-        for (User user : users) {
-            if (email.equals(user.getEmail()) && password.equals(user.getPassword())) {
-                trouve = true;
-            }
-        }
-        return trouve;
+    public static Boolean checkUserLogin(Context ctx, String email, String password){
+        return true;
     }
+//    public static Boolean checkUserLogin(Context ctx, String email, String password) {
+//        SQLiteDatabase bd = ConnexionBd.getBd(ctx);
+//        Boolean trouve = false;
+//        ArrayList<User> users = getAllUsers(ctx);
+//        for (User user : users) {
+//            if (email.equals(user.getEmail()) && password.equals(user.getPassword())) {
+//                trouve = true;
+//            }
+//        }
+//        return trouve;
+//    }
 //    public boolean checkLogin(String username, String password) {
 //        SQLiteDatabase db = md.getWritableDatabase();
 //

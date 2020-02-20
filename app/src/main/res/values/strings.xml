@@ -11,6 +11,7 @@
     <!--    add new-->
     <string name="title_activity_add_new">add_new</string>
     <string name="hint_amount">Amount</string>
+    <string name="hint_description">Description</string>
 
     <string name="category_prompt">Select a Category</string>
     <string-array name="category_arrays">
