@@ -23,6 +23,10 @@ public class UserManager {
         ConnexionBd.close();
         return users;
     }
+    // temporary code to test app
+//    public static Boolean checkUserLogin(Context ctx, String email, String password){
+//        return true;
+//    }
     public static Boolean checkUserLogin(Context ctx, String email, String password) {
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
         Boolean trouve = false;
