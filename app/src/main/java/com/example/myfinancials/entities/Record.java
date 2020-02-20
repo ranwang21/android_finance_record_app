@@ -5,56 +5,72 @@ import java.util.Date;
 
 public class Record {
 
-    private int id_record;
+    private int id;
     private double amount;
     private String description;
-    private User user;
-    private Category category;
-    private Date date;
-    public Record() {
-    }
-    public Record(int id_record, double amount, String description, User user, Category category, Date date) {
-        this.id_record = id_record;
+    private String date;
+    private int id_category;
+    private int id_user;
+
+    public Record(int id, double amount, String description, String date, int id_category, int id_user) {
+        this.id = id;
         this.amount = amount;
         this.description = description;
-        this.user = user;
-        this.category = category;
         this.date = date;
+        this.id_category = id_category;
+        this.id_user = id_user;
     }
-    public int getId_record() {
-        return id_record;
+
+
+
+    public Record() {
     }
-    public void setId_record(int id_record) {
-        this.id_record = id_record;
+
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public double getAmount() {
         return amount;
     }
+
     public void setAmount(double amount) {
         this.amount = amount;
     }
+
     public String getDescription() {
         return description;
     }
+
     public void setDescription(String description) {
         this.description = description;
     }
-    public User getUser() {
-        return user;
-    }
-    public void setUser(User user) {
-        this.user = user;
-    }
-    public Category getCategory() {
-        return category;
-    }
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-    public Date getDate() {
+
+    public String getDate() {
         return date;
     }
-    public void setDate(Date date) {
+
+    public void setDate(String date) {
         this.date = date;
+    }
+
+    public int getId_category() {
+        return id_category;
+    }
+
+    public void setId_category(int id_category) {
+        this.id_category = id_category;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 }
