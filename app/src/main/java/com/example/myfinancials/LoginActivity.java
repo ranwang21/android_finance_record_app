@@ -31,8 +31,6 @@ public class LoginActivity extends AppCompatActivity {
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
             super.onCreate(savedInstanceState);
             ctx = this;
-            // set context of db connection
-            ConnexionBd.copyBdFromAssets(this);
 
             setContentView(R.layout.activity_login);
 

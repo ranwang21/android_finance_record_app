@@ -17,57 +17,49 @@ public class RecordManager {
 
     /**
      * Add one record to database
-     *
+     * Tested
      * @param ctx
      * @param record
      */
-    public static void addOneRecord(Context ctx, Record record) {
+    public static long addOneRecord(Context ctx, Record record) {
+        // init result
+        long result;
         // get the bd connection
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
-        // write sql query
-        String queryAddOneRecord = "INSERT INTO record (amount, description, date, id_category, id_user) VALUES (?, ?, ?, ?, ?)";
-        // execute query
-        try {
-//            System.out.println(record.getAmount());
-//            System.out.println(record.getDescription());
-//            System.out.println(record.getDate());
-//            System.out.println(record.getId_category());
-//            System.out.println(record.getId_user());
-           // bd.execSQL(queryAddOneRecord, new String[]{"" + record.getAmount(), record.getDescription(), record.getDate(), "" + record.getId_category(), "" + record.getId_user()});
-            ContentValues cv = new ContentValues();
-            cv.put("amout", record.getAmount());
-            cv.put("description", record.getDescription());
-            cv.put("date", record.getDate());
-            cv.put("id_category", record.getId_category());
-            cv.put("id_user", record.getId_user());
-            bd.insert("record", null,cv);
-        } catch (Exception e){
-            e.printStackTrace();
-        } finally {
-            ConnexionBd.close();
-        }
+        // fill query content values
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("amount", record.getAmount());
+        contentValues.put("description", record.getDescription());
+        contentValues.put("date", record.getDate());
+        contentValues.put("id_category", record.getId_category());
+        contentValues.put("id_user", record.getId_user());
+        // Call SQLite api
+        result = bd.insertOrThrow("record", null, contentValues);
+        bd.close();
+        return result;
     }
 
     /**
      * Delete a record by id
+     * Tested
      * @param ctx
-     * @param id record's id
+     * @param id  record's id
      */
-//    public static void deleteOneRecordById(Context ctx, int id) {
-//        // get the bd connection
-//        SQLiteDatabase bd = ConnexionBd.getBd(ctx);
-//        // execute query
-//        ContentValues content = new ContentValues();
-//        content.put("");
-//    }
+    public static void deleteOneRecordById(Context ctx, int id) {
+        // get the bd connection
+        SQLiteDatabase bd = ConnexionBd.getBd(ctx);
+        // call SQLite api
+        bd.delete("record", "id=?", new String[]{"1"});
+    }
 
     /**
      * Get records from a user
+     *
      * @param ctx
      * @param id_user
      * @return all records of a user
      */
-    public static ArrayList<Record> getRecordsByUserId(Context ctx, int id_user){
+    public static ArrayList<Record> getRecordsByUserId(Context ctx, int id_user) {
         // get the bd connection
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
         // init the object to return
