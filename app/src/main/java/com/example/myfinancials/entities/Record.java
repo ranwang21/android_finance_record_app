@@ -5,15 +5,13 @@ import java.util.Date;
 
 public class Record {
 
-    private int id;
     private double amount;
     private String description;
     private String date;
     private int id_category;
     private int id_user;
 
-    public Record(int id, double amount, String description, String date, int id_category, int id_user) {
-        this.id = id;
+    public Record(double amount, String description, String date, int id_category, int id_user) {
         this.amount = amount;
         this.description = description;
         this.date = date;
@@ -26,13 +24,6 @@ public class Record {
     public Record() {
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public double getAmount() {
         return amount;

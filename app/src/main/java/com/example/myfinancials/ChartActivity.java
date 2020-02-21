@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ChartActivity extends AppCompatActivity implements OnChartValueSelectedListener {
+public class ChartActivity extends AppCompatActivity {
     private PieChart pieChart;
     private Legend legend;
     private PieDataSet pieDataSet;
@@ -69,7 +69,6 @@ public class ChartActivity extends AppCompatActivity implements OnChartValueSele
         PieData pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         // style the pie colors, its animation and other parameters
-        pieChart.setOnChartValueSelectedListener(this);
         pieChart.setTouchEnabled(true);
         int[] colors = new int[]{Color.rgb(69,1,105), Color.rgb(96,0,116), Color.rgb(131,21,116), Color.rgb(82,46,8), Color.rgb(119,17,34), Color.rgb(79,45,78), Color.rgb(190,182,174)};
         pieDataSet.setColors(ColorTemplate.createColors(colors));
@@ -82,21 +81,5 @@ public class ChartActivity extends AppCompatActivity implements OnChartValueSele
         legend.setOrientation(Legend.LegendOrientation.VERTICAL);
         legend.setVerticalAlignment(Legend.LegendVerticalAlignment.CENTER);
         pieChart.invalidate();
-    }
-    @Override
-    public void onValueSelected(Entry e, Highlight h) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Hello");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-        builder.show();
-    }
-    @Override
-    public void onNothingSelected() {
-
     }
 }
