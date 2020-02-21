@@ -2,6 +2,7 @@ package com.example.myfinancials;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -33,19 +34,21 @@ public class AddNewActivity extends AppCompatActivity {
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         super.onCreate(savedInstanceState);
         ctx = this;
-        // set context of db connection
-        ConnexionBd.copyBdFromAssets(this);
-
         setContentView(R.layout.activity_add_new);
         // submit and cancel button
         fabSubmit = findViewById(R.id.fab_submit);
         fabSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addRecord();
-                // prompt a snarkbar when successed
-                Snackbar.make(view, "Record Added", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                long result;
+                result = addRecord();
+                // prompt a snackbar when successed
+                System.out.println(result);
+                if(result > 0){
+                    Snackbar.make(view, "Record Added", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+
             }
         });
         fabCancel = findViewById(R.id.fab_cancel);
@@ -56,18 +59,23 @@ public class AddNewActivity extends AppCompatActivity {
             }
         });
     }
-    private void addRecord() {
+    private long addRecord() {
         // init the views
         dropdown = findViewById(R.id.spinner_category);
         datePicker = findViewById(R.id.date_picker);
         amount = findViewById(R.id.edittext_amount);
         description = findViewById(R.id.edittext_description);
+        // init result
+        long result;
         // format the date picked
         String date = "" + datePicker.getYear() + "-" + datePicker.getMonth() + "-" + datePicker.getDayOfMonth();
+        // TODO: format the category picked (retrieve its id)
         // construct a record object
-//        Record record = new Record(Double.parseDouble(amount.getText().toString()), description.getText().toString(), date, 1, 1);
-        Record record = new Record(1200, "description test2", "2020-01-01", 1, 2);
-        // call the manager and add recor to the database
-        RecordManager.addOneRecord(AddNewActivity.this, record);
+        Record record = new Record(Double.parseDouble(amount.getText().toString()), description.getText().toString(), date, 1, 2);
+        // TODO: get the login user's id
+        // call the manager and add record to the database
+        result = RecordManager.addOneRecord(this, record);
+        return result;
+
     }
 }
