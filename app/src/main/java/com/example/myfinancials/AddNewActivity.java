@@ -15,7 +15,7 @@ public class AddNewActivity extends AppCompatActivity {
 
     FloatingActionButton fabSubmit, fabCancel;
     Spinner dropdown;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

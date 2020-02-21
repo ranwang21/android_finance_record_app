@@ -1,5 +1,6 @@
 package com.example.myfinancials.managers;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -23,10 +24,11 @@ public class RecordManager {
     private static void addOneRecord(Context ctx, Record record) {
         // get the bd connection
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
-        // write sql query
-        String queryAddOneRecord = "INSERT INTO record (amount, description, date, id_category, id_user) VALUES (?, ?, ?, ?, ?)";
-        // execute query
-        bd.execSQL(queryAddOneRecord, new String[]{"" + record.getAmount(), record.getDescription(), record.getDate(), "" + record.getId_category(), "" + record.getId()});
+        // fill query content values
+        ContentValues values = new ContentValues();
+        values.put("");
+        // Call SQLite api
+        bd.insert("record", null, );
     }
 
     /**
