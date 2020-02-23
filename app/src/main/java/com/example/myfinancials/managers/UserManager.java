@@ -1,5 +1,6 @@
 package com.example.myfinancials.managers;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -37,6 +38,19 @@ public class UserManager {
             }
         }
         return trouve;
+    }
+    public static Boolean insertUser(Context ctx, User user) {
+        SQLiteDatabase bd = ConnexionBd.getBd(ctx);
+        long result;
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nom", user.getEmail());
+        contentValues.put("prenom", user.getPassword());
+        result = bd.insert("user", null, contentValues);
+        bd.close();
+        if (result == -1) {
+            return false;
+        } else
+            return true;
     }
 //    public boolean checkLogin(String username, String password) {
 //        SQLiteDatabase db = md.getWritableDatabase();

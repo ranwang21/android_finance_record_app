@@ -45,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_margin="20dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_corner"
             android:hint="Email"
             android:paddingStart="10dp"
@@ -58,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_margin="20dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_corner"
             android:hint="Password"
             android:inputType="textPassword"
@@ -67,15 +69,36 @@
             android:textColorHint="#eee"
             android:textSize="17sp" />
 
-        <Button
-            android:id="@+id/btn_signIn"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:background="@drawable/rounded_corner_button"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="@string/signin"
-            android:textColor="#777" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_signIn"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="@drawable/rounded_corner_button"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/signin"
+                android:textColor="#777" />
+
+
+            <Button
+
+                android:id="@+id/btn_signUp"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_corner_button"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/signup"
+                android:textColor="#777" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
