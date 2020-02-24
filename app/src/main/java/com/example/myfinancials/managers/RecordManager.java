@@ -40,19 +40,6 @@ public class RecordManager {
     }
 
     /**
-     * Delete a record by id
-     * Tested
-     * @param ctx
-     * @param id  record's id
-     */
-    public static void deleteOneRecordById(Context ctx, int id) {
-        // get the bd connection
-        SQLiteDatabase bd = ConnexionBd.getBd(ctx);
-        // call SQLite api
-        bd.delete("record", "id=?", new String[]{"1"});
-    }
-
-    /**
      * Get records from a user
      *
      * @param ctx

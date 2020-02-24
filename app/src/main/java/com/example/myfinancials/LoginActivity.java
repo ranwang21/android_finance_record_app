@@ -42,10 +42,11 @@ public class LoginActivity extends AppCompatActivity {
             btn_sign.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Boolean validUser = UserManager.checkUserLogin(ctx, edt_email.getText().toString(), edt_password.getText().toString());
-                    if (validUser) {
+                    int userId = UserManager.checkUserLogin(ctx, edt_email.getText().toString(), edt_password.getText().toString());
+                    if (userId != -1) {
                         // if login success, open main activity
                         Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        i.putExtra("userId", userId);
                         startActivity(i);
                     } else {
                         // if credentials are invalid or any field empty, prompt a toast

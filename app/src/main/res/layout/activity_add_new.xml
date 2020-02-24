@@ -42,10 +42,10 @@
         android:padding="@dimen/record_padding"
         android:layout_margin="@dimen/input_margin"
         android:layout_gravity="center"
-        android:spinnerMode="dropdown"
+        android:spinnerMode="dialog"
         android:background="@drawable/rounded_spinner"
         android:prompt="@string/category_prompt"
-
+        android:overlapAnchor="true"
         android:entries="@array/category_arrays"
         android:textAlignment="center"
         />
