@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.myfinancials.adapters.RecordListAdapter;
@@ -32,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
     int id_user;
     ArrayList<Record> records;
     TextView expense, income, balance;
-    ListView list;
-    List<Map<String, Object>> data = new ArrayList<>();
+    ListView lv;
+    RecordListAdapter recordListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // show all records of the user
-        initData(records);
+        initData();
 
         // plus button
         fabPlus = findViewById(R.id.fab_plus);
@@ -98,23 +99,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initData(ArrayList<Record> records) {
-        list = findViewById(R.id.record_list);
-        String[] from = {"date", "genre", "category", "description", "amount"};
-        int[] to = {R.id.singlelist_date, R.id.singlelist_genre, R.id.singlelist_category, R.id.singlelist_description, R.id.singlelist_amount};
-
-        for(Record record : records){
-            Map<String, Object> map = new HashMap<>();
-            map.put("date", record.getDate());
-            map.put("genre", "Expense");
-            map.put("category", "category");
-            map.put("description", record.getDescription());
-            map.put("amount", record.getAmount());
-
-            data.add(map);
-        }
-        
-        SimpleAdapter adapter = new SimpleAdapter(this, data, R.layout.single_record, from, to);
-        list.setAdapter(adapter);
+    private void initData() {
+        lv = findViewById(R.id.record_list);
+        recordListAdapter = new RecordListAdapter(this, R.layout.single_record, records);
     }
 }

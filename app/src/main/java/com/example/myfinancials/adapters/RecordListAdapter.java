@@ -1,27 +1,74 @@
 package com.example.myfinancials.adapters;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public class RecordListAdapter extends BaseAdapter {
-    @Override
-    public int getCount() {
-        return 0;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.example.myfinancials.R;
+import com.example.myfinancials.entities.Record;
+
+import java.util.List;
+
+public class RecordListAdapter extends ArrayAdapter<Record> {
+    int idLayout;
+    public RecordListAdapter(@NonNull Context context, int resource, @NonNull List<Record> objects) {
+        super(context, resource, objects);
+        idLayout = resource;
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
-    }
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        final Record record = getItem(position);
 
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
+        if (convertView == null)
+            convertView = LayoutInflater.from(getContext()).inflate(idLayout, null);
+        TextView date = convertView.findViewById(R.id.singlelist_date);
+        date.setText(record.getDate());
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        TextView genre = convertView.findViewById(R.id.singlelist_genre);
+        if(record.getId_category() != 8){
+            genre.setText("Expense");
+        } else {
+            genre.setText("Income");
+        }
+
+        TextView category = convertView.findViewById(R.id.singlelist_category);
+        switch (record.getId_category()){
+            case 1:
+                category.setText("Charges");
+                break;
+            case 2:
+                category.setText("Entertainment");
+                break;
+            case 3:
+                category.setText("Food");
+                break;
+            case 4:
+                category.setText("Clothes");
+                break;
+            case 5:
+                category.setText("Installment");
+                break;
+            case 6:
+                category.setText("Miscellaneous");
+                break;
+            case 7:
+                category.setText("Transport");
+                break;
+            case 8:
+                category.setText("Income");
+                break;
+        }
+
+        return convertView;
     }
 }
