@@ -41,6 +41,12 @@ public class RecordListAdapter extends ArrayAdapter<Record> {
             genre.setText("Income");
         }
 
+        TextView amt = convertView.findViewById(R.id.singlelist_amount);
+        amt.setText(Double.toString(record.getAmount()));
+
+        TextView description = convertView.findViewById(R.id.singlelist_description);
+        description.setText(record.getDescription());
+
         TextView category = convertView.findViewById(R.id.singlelist_category);
         switch (record.getId_category()){
             case 1:
@@ -68,6 +74,8 @@ public class RecordListAdapter extends ArrayAdapter<Record> {
                 category.setText("Income");
                 break;
         }
+
+
 
         return convertView;
     }
