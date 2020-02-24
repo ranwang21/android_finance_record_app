@@ -16,7 +16,6 @@
     <string name="category_prompt">Select a Category</string>
     <string-array name="category_arrays">
         <item>Select a Category</item>
-        <item>Income</item>
         <item>Charges</item>
         <item>Clothes</item>
         <item>Entertainment</item>

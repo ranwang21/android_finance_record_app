@@ -27,16 +27,16 @@ public class UserManager {
 //    public static Boolean checkUserLogin(Context ctx, String email, String password){
 //        return true;
 //    }
-    public static int checkUserLogin(Context ctx, String email, String password) {
+    public static Boolean checkUserLogin(Context ctx, String email, String password) {
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
-        int userId = -1;
+        Boolean trouve = false;
         ArrayList<User> users = getAllUsers(ctx);
         for (User user : users) {
             if (email.equals(user.getEmail()) && password.equals(user.getPassword())) {
-                userId = user.getId_user();
+                trouve = true;
             }
         }
-        return userId;
+        return trouve;
     }
 //    public boolean checkLogin(String username, String password) {
 //        SQLiteDatabase db = md.getWritableDatabase();
