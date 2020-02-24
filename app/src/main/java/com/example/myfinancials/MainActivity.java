@@ -35,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
     TextView expense, income, balance;
     ListView lv;
     RecordListAdapter recordListAdapter;
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initData();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,5 +106,6 @@ public class MainActivity extends AppCompatActivity {
     private void initData() {
         lv = findViewById(R.id.record_list);
         recordListAdapter = new RecordListAdapter(this, R.layout.single_record, records);
+        lv.setAdapter(recordListAdapter);
     }
 }
