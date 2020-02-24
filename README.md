@@ -8,5 +8,5 @@ JAVA, Android, Android Studio, SQLite, Material Design, MPAndroidChart
 ![](preview1/preview.PNG)
 ![](preview2/preview.PNG)
 
-## Installation
-Open Android Studio, set up a simulator or collect to your mobile phoen, then click run, the app will start on the sign/signup page, you show sign up first then login in to the main page
+## Installation and usage
+Open Android Studio, set up a simulator or collect to your mobile phoen, then click run, the app will start on the sign/signup page, you show sign up first then login in to the main page. You would not see any data unless you add records yourself by clicking the plus button at the right bottom
