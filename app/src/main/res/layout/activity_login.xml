@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="?actionBarSize"
-            android:text="@string/signin"
+            android:text="@string/signinorup"
             android:textColor="#fff"
             android:textSize="40sp"
             android:textStyle="bold" />
@@ -67,20 +67,38 @@
             android:textColorHint="#eee"
             android:textSize="17sp" />
 
-        <Button
-            android:id="@+id/btn_signIn"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:background="@drawable/rounded_corner_button"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="@string/signin"
-            android:textColor="#777" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_signIn"
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="@drawable/rounded_corner_button"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/signin"
+                android:textColor="#777" />
+
+            <Button
+                android:id="@+id/btn_signUp"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="@drawable/rounded_corner_button"
+                android:paddingLeft="20dp"
+                android:layout_margin="@dimen/fab_margin"
+                android:paddingRight="20dp"
+                android:text="@string/signup"
+                android:textColor="#777" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="2dp"
             android:text="@string/forgotPassword"
             android:textColor="#fff" />
     </LinearLayout>

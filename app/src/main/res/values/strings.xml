@@ -27,6 +27,8 @@
 
     <!--    chart-->
     <string name="month_prompt">Select a Month</string>
+    <string name="signup">SignUp</string>
+    <string name="signinorup">SignIn or SignUp</string>
     <string-array name="month_arrays">
         <item>Select a Month</item>
         <item>Jan</item>

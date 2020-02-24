@@ -1,5 +1,6 @@
 package com.example.myfinancials.managers;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -27,31 +28,22 @@ public class UserManager {
 //    public static Boolean checkUserLogin(Context ctx, String email, String password){
 //        return true;
 //    }
-    public static Boolean checkUserLogin(Context ctx, String email, String password) {
+    public static User checkUserLogin(Context ctx, String email, String password) {
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
-        Boolean trouve = false;
         ArrayList<User> users = getAllUsers(ctx);
         for (User user : users) {
             if (email.equals(user.getEmail()) && password.equals(user.getPassword())) {
-                trouve = true;
+                return user;
             }
         }
-        return trouve;
+        return null;
     }
-//    public boolean checkLogin(String username, String password) {
-//        SQLiteDatabase db = md.getWritableDatabase();
-//
-//        String s;
-//        Cursor c = db.rawQuery("SELECT * FROM MyTable WHERE " + username + " =? AND" + password + " =?", null);
-//
-//        if(c.getCount() <= 0) {
-//            c.close();
-//            db.close();
-//            return false;
-//        } else {
-//            c.close();
-//            db.close();
-//            return true;
-//        }
-//    }
+
+    public static void addOneUser(Context ctx, User user){
+        SQLiteDatabase bd = ConnexionBd.getBd(ctx);
+        ContentValues values = new ContentValues();
+        values.put("email", user.getEmail());
+        values.put("password", user.getPassword());
+        bd.insert("user", null, values);
+    }
 }

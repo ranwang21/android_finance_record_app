@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.setContentView(R.layout.activity_main);
 
+        // get userId
+        intent = getIntent();
+        System.out.println(intent.getIntExtra("userId", -1));
+
         // plus button
         fabPlus = findViewById(R.id.fab_plus);
         fabPlus.setOnClickListener(new View.OnClickListener() {
