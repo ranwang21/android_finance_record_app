@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -27,6 +28,8 @@ public class AddNewActivity extends AppCompatActivity {
     Spinner dropdown;
     DatePicker datePicker;
     EditText amount, description;
+    Intent intent;
+    int id_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,12 @@ public class AddNewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ctx = this;
         setContentView(R.layout.activity_add_new);
+
+        // get login uer id
+        intent = getIntent();
+        id_user = intent.getIntExtra("id_user", -1);
+        System.out.println(id_user);
+
         // submit and cancel button
         fabSubmit = findViewById(R.id.fab_submit);
         fabSubmit.setOnClickListener(new View.OnClickListener() {
@@ -69,10 +78,37 @@ public class AddNewActivity extends AppCompatActivity {
         long result;
         // format the date picked
         String date = "" + datePicker.getYear() + "-" + datePicker.getMonth() + "-" + datePicker.getDayOfMonth();
-        // TODO: format the category picked (retrieve its id)
+        System.out.println(date);
+        // Format the category picked (retrieve its id)
+        int category_id = -1;
+        switch (dropdown.getSelectedItem().toString()){
+            case "Charges":
+                category_id = 1;
+                break;
+            case "Entertainment":
+                category_id = 2;
+                break;
+            case "Food":
+                category_id = 3;
+                break;
+            case "Clothes":
+                category_id = 4;
+                break;
+            case "Installment":
+                category_id = 5;
+                break;
+            case "Miscellaneous":
+                category_id = 6;
+                break;
+            case "Transport":
+                category_id = 7;
+                break;
+            case "Income":
+                category_id = 8;
+
+        }
         // construct a record object
-        Record record = new Record(Double.parseDouble(amount.getText().toString()), description.getText().toString(), date, 1, 2);
-        // TODO: get the login user's id
+        Record record = new Record(Double.parseDouble(amount.getText().toString()), description.getText().toString(), date, category_id, id_user);
         // call the manager and add record to the database
         result = RecordManager.addOneRecord(this, record);
         return result;

@@ -15,6 +15,7 @@
         <TableRow>
 
             <TextView
+
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="@dimen/main_header_padding"
@@ -25,6 +26,7 @@
                 android:textStyle="bold" />
 
             <TextView
+
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="@dimen/main_header_padding"
@@ -35,6 +37,7 @@
                 android:textStyle="bold" />
 
             <TextView
+
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="@dimen/main_header_padding"
@@ -48,6 +51,7 @@
         <TableRow>
 
             <TextView
+                android:id="@+id/total_expense"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="6dp"
@@ -56,6 +60,7 @@
                 android:textColor="#fff" />
 
             <TextView
+                android:id="@+id/total_income"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="6dp"
@@ -64,6 +69,7 @@
                 android:textColor="#fff" />
 
             <TextView
+                android:id="@+id/total_balance"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="6dp"
@@ -89,53 +95,10 @@
                 android:orientation="vertical">
 
                 <!--                include all records here -->
-                <include
-                    layout="@layout/single_record"
+                <ListView
+                    android:id="@+id/record_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/record_margin" />
-
-                <include
-                    layout="@layout/single_record"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/record_margin" />
-
-                <include
-                    layout="@layout/single_record"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/record_margin" />
-
-                <include
-                    layout="@layout/single_record"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/record_margin" />
-
-                <include
-                    layout="@layout/single_record"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/record_margin" />
-
-                <include
-                    layout="@layout/single_record"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/record_margin" />
-
-                <include
-                    layout="@layout/single_record"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/record_margin" />
-
-                <include
-                    layout="@layout/single_record"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/record_margin" />
+                    android:layout_height="wrap_content"></ListView>
             </LinearLayout>
 
 

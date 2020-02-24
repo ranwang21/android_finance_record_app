@@ -12,6 +12,7 @@
         android:layout_weight="1">
 
         <TextView
+            android:id="@+id/singlelist_date"
             android:layout_width="0dp"
             android:layout_column="0"
             android:layout_weight="1"
@@ -21,6 +22,7 @@
 
 
         <TextView
+            android:id="@+id/singlelist_genre"
             android:layout_width="0dp"
             android:layout_column="2"
             android:layout_weight="1"
@@ -47,15 +49,17 @@
         android:layout_margin="1dp"
         android:layout_weight="1">
 
-        <ImageView
+        <TextView
+            android:id="@+id/singlelist_category"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_column="0"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:src="@drawable/category_entertainment" />
+            />
 
         <TextView
+            android:id="@+id/singlelist_description"
             android:layout_width="0dp"
             android:layout_column="1"
             android:layout_weight="1"
@@ -64,6 +68,7 @@
             android:textAlignment="inherit" />
 
         <TextView
+            android:id="@+id/singlelist_amount"
             android:layout_width="0dp"
             android:layout_column="2"
             android:layout_gravity="center"

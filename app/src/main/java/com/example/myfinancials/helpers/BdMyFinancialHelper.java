@@ -15,7 +15,7 @@ public class BdMyFinancialHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE \"category\" (\n" +
-                "\t\"id\"\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,\n" +
+                "\t\"id\"\tINTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,\n" +
                 "\t\"name\"\tTEXT NOT NULL UNIQUE\n" +
                 ")");
         db.execSQL("CREATE TABLE \"record\" (\n" +

@@ -19,7 +19,7 @@ public class UserManager {
         SQLiteDatabase bd = ConnexionBd.getBd(ctx);
         Cursor cursor = bd.rawQuery(queryGetAllUsers, null);
         while (cursor.moveToNext()) {
-            users.add(new User(cursor.getString(1), cursor.getString(2)));
+            users.add(new User(cursor.getInt(0), cursor.getString(1), cursor.getString(2)));
         }
         ConnexionBd.close();
         return users;

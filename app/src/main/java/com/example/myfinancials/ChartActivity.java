@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -15,6 +16,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myfinancials.entities.Record;
+import com.example.myfinancials.managers.RecordManager;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
@@ -25,6 +28,9 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.zxing.oned.rss.AbstractRSSReader;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +40,8 @@ public class ChartActivity extends AppCompatActivity {
     private PieChart pieChart;
     private Legend legend;
     private PieDataSet pieDataSet;
+    private ArrayList<Record> records;
+    int id_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +51,118 @@ public class ChartActivity extends AppCompatActivity {
         this.setContentView(R.layout.activity_chart);
         setContentView(R.layout.activity_chart);
         initPieChart();
-
+        fillTable();
     }
 
     private ArrayList getData(){
+        Intent intent = getIntent();
+        id_user = intent.getIntExtra("id_user", -1);
+        records = RecordManager.getRecordsByUserId(this, id_user);
         ArrayList<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry(945f, "Charges"));
-        entries.add(new PieEntry(1030f, "Clothes"));
-        entries.add(new PieEntry(1143f, "Entertainment"));
-        entries.add(new PieEntry(1250f, "Food"));
-        entries.add(new PieEntry(1121f, "Installment"));
-        entries.add(new PieEntry(1721f, "Miscellaneous"));
-        entries.add(new PieEntry(2102f, "Transport"));
+        for (Record record : records){
+            if(record.getId_category() != 8){
+                String category = "Unknown";
+                switch (record.getId_category()){
+                    case 1:
+                        category = "Charges";
+                        break;
+                    case 2:
+                        category = "Entertainment";
+                        break;
+                    case 3:
+                        category = "Food";
+                        break;
+                    case 4:
+                        category = "Clothes";
+                        break;
+                    case 5:
+                        category = "installment";
+                        break;
+                    case 6:
+                        category = "Miscellaneous";
+                        break;
+                    case 7:
+                        category = "Transport";
+                        break;
+                }
+                entries.add(new PieEntry((float)record.getAmount(), category));
+            }
+        }
         return entries;
+    }
+
+    private void fillTable(){
+        TextView charges = findViewById(R.id.table_charges);
+        TextView entertainment = findViewById(R.id.table_entertainment);
+        TextView food = findViewById(R.id.table_food);
+        TextView clothes = findViewById(R.id.table_clothes);
+        TextView installment = findViewById(R.id.table_installment);
+        TextView miscellaneous = findViewById(R.id.table_miscellaneous);
+        TextView transport = findViewById(R.id.table_transport);
+        TextView income = findViewById(R.id.table_income);
+        TextView expense = findViewById(R.id.table_expense);
+        TextView balance = findViewById(R.id.table_balance);
+
+        double valueCharges = 0;
+        double valueEntertainment = 0;
+        double valueFood = 0;
+        double valueClothes = 0;
+        double valueInstallment = 0;
+        double valueMiscellaneous = 0;
+        double valueTransport = 0;
+        double valueIncome = 0;
+        double valueExpense = 0;
+        double valueBalance = 0;
+
+        records = RecordManager.getRecordsByUserId(this, id_user);
+
+        for (Record record : records){
+            switch (record.getId_category()){
+                case 1:
+                    valueCharges += record.getAmount();
+                    valueExpense += record.getAmount();
+                    break;
+                case 2:
+                    valueEntertainment += record.getAmount();
+                    valueExpense += record.getAmount();
+                    break;
+                case 3:
+                    valueFood += record.getAmount();
+                    valueExpense += record.getAmount();
+                    break;
+                case 4:
+                    valueClothes += record.getAmount();
+                    valueExpense += record.getAmount();
+                    break;
+                case 5:
+                    valueInstallment += record.getAmount();
+                    valueExpense += record.getAmount();
+                    break;
+                case 6:
+                    valueMiscellaneous += record.getAmount();
+                    valueExpense += record.getAmount();
+                    break;
+                case 7:
+                    valueTransport += record.getAmount();
+                    valueExpense += record.getAmount();
+                    break;
+                case 8:
+                    valueIncome += record.getAmount();
+            }
+            valueBalance = valueIncome - valueExpense;
+        }
+
+        // set text values
+        charges.setText(Double.toString(valueCharges));
+        entertainment.setText(Double.toString(valueEntertainment));
+        food.setText(Double.toString(valueFood));
+        clothes.setText(Double.toString(valueClothes));
+        installment.setText(Double.toString(valueInstallment));
+        miscellaneous.setText(Double.toString(valueMiscellaneous));
+        transport.setText(Double.toString(valueTransport));
+        income.setText(Double.toString(valueIncome));
+        expense.setText(Double.toString(valueExpense));
+        balance.setText(Double.toString(valueBalance));
     }
 
     private void initPieChart(){
