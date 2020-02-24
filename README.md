@@ -5,8 +5,8 @@ This is an Android App allowing user to register its daily expenses and incomes,
 JAVA, Android, Android Studio, SQLite, Material Design, MPAndroidChart
 
 ## Preview
-![](preview1/preview.PNG)
-![](preview2/preview.PNG)
+![login](preview1/preview1.PNG)
+![chart](preview2/preview.PNG)
 
 ## Installation
 Open Android Studio, set up a simulator or collect to your mobile phoen, then click run, the app will start on the sign/signup page, you show sign up first then login in to the main page
