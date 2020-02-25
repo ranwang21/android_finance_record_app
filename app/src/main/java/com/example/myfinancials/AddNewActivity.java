@@ -34,6 +34,7 @@ public class AddNewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Window w = getWindow();
+        w.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         super.onCreate(savedInstanceState);
         ctx = this;
@@ -42,7 +43,6 @@ public class AddNewActivity extends AppCompatActivity {
         // get login uer id
         intent = getIntent();
         id_user = intent.getIntExtra("id_user", -1);
-        System.out.println(id_user);
 
         // submit and cancel button
         fabSubmit = findViewById(R.id.fab_submit);
@@ -52,7 +52,6 @@ public class AddNewActivity extends AppCompatActivity {
                 long result;
                 result = addRecord();
                 // prompt a snackbar when successed
-                System.out.println(result);
                 if(result > 0){
                     Snackbar.make(view, "Record Added", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
@@ -78,7 +77,6 @@ public class AddNewActivity extends AppCompatActivity {
         long result;
         // format the date picked
         String date = "" + datePicker.getYear() + "-" + datePicker.getMonth() + "-" + datePicker.getDayOfMonth();
-        System.out.println(date);
         // Format the category picked (retrieve its id)
         int category_id = -1;
         switch (dropdown.getSelectedItem().toString()){
@@ -112,6 +110,5 @@ public class AddNewActivity extends AppCompatActivity {
         // call the manager and add record to the database
         result = RecordManager.addOneRecord(this, record);
         return result;
-
     }
 }

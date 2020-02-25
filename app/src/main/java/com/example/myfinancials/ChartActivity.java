@@ -50,6 +50,7 @@ public class ChartActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.setContentView(R.layout.activity_chart);
         setContentView(R.layout.activity_chart);
+
         initPieChart();
         fillTable();
     }

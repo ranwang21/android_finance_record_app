@@ -36,9 +36,12 @@ public class MainActivity extends AppCompatActivity {
     ListView lv;
     RecordListAdapter recordListAdapter;
     @Override
-    protected void onResume() {
+    public void onResume()
+    {  // After a pause OR at startup
         super.onResume();
-        initData();
+        //Refresh your stuff here
+        initTotals();
+        initList();
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,38 +50,10 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.setContentView(R.layout.activity_main);
 
-        // get userId
-        intent = getIntent();
-        id_user = intent.getIntExtra("userId", -1);
-        System.out.println(id_user);
-        // get all records of the login user
-        records = RecordManager.getRecordsByUserId(MainActivity.this, id_user);
-        // get total expenses and income, balance
-        double totalExpenses = 0;
-        double totalAmount = 0;
-        double totalIncome = 0;
-        double totalBalance = 0;
-        for (Record record : records) {
-            totalAmount += record.getAmount();
-            if (record.getId_category() != 8) {
-                totalExpenses += record.getAmount();
-            } else {
-                totalIncome += record.getAmount();
-            }
-        }
-        totalBalance = totalIncome - totalExpenses;
-
-        expense = findViewById(R.id.total_expense);
-        income = findViewById(R.id.total_income);
-        balance = findViewById(R.id.total_balance);
-
-        expense.setText(Double.toString(totalExpenses));
-        income.setText(Double.toString(totalIncome));
-        balance.setText(Double.toString(totalBalance));
-
-
+        // show the totals and balance
+        initTotals();
         // show all records of the user
-        initData();
+        initList();
 
         // plus button
         fabPlus = findViewById(R.id.fab_plus);
@@ -103,9 +78,39 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initData() {
+    private void initList() {
         lv = findViewById(R.id.record_list);
         recordListAdapter = new RecordListAdapter(this, R.layout.single_record, records);
         lv.setAdapter(recordListAdapter);
+    }
+
+    private void initTotals(){
+        // get userId
+        intent = getIntent();
+        id_user = intent.getIntExtra("userId", -1);
+        // get all records of the login user
+        records = RecordManager.getRecordsByUserId(MainActivity.this, id_user);
+        // get total expenses and income, balance
+        double totalExpenses = 0;
+        double totalAmount = 0;
+        double totalIncome = 0;
+        double totalBalance = 0;
+        for (Record record : records) {
+            totalAmount += record.getAmount();
+            if (record.getId_category() != 8) {
+                totalExpenses += record.getAmount();
+            } else {
+                totalIncome += record.getAmount();
+            }
+        }
+        totalBalance = totalIncome - totalExpenses;
+
+        expense = findViewById(R.id.total_expense);
+        income = findViewById(R.id.total_income);
+        balance = findViewById(R.id.total_balance);
+
+        expense.setText(Double.toString(totalExpenses));
+        income.setText(Double.toString(totalIncome));
+        balance.setText(Double.toString(totalBalance));
     }
 }

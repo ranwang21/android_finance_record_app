@@ -1,10 +1,13 @@
 package com.example.myfinancials.entities;
 
+import androidx.annotation.NonNull;
+
 import java.util.Date;
 
 
 public class Record {
 
+    private int id;
     private double amount;
     private String description;
     private String date;
@@ -19,7 +22,14 @@ public class Record {
         this.id_user = id_user;
     }
 
-
+    public Record(int id, double amount, String description, String date, int id_category, int id_user) {
+        this.id = id;
+        this.amount = amount;
+        this.description = description;
+        this.date = date;
+        this.id_category = id_category;
+        this.id_user = id_user;
+    }
 
     public Record() {
     }
@@ -63,5 +73,16 @@ public class Record {
 
     public void setId_user(int id_user) {
         this.id_user = id_user;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "ID: " + this.id
+                + " amount: " + this.amount
+                + " description: " + this.description
+                + " date: " + this.date
+                + " categoryId: " + this.id_category
+                + " userId: " + this.id_category;
     }
 }

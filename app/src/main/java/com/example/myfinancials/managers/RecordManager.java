@@ -57,26 +57,27 @@ public class RecordManager {
         Cursor cursor = bd.rawQuery(queryGetRecordsByUserId, new String[]{"" + id_user});
         // iterate through lines to fill the object to return
         while (cursor.moveToNext()) {
-            records.add(new Record(cursor.getDouble(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5)));
+            Record record = new Record(cursor.getInt(0), cursor.getDouble(1), cursor.getString(2), cursor.getString(5), cursor.getInt(4), cursor.getInt(5));
+            records.add(record);
         }
         // return result
         return records;
     }
 
-    public static ArrayList<Record> getCountByCategotyAndUserId(Context ctx,int id_user, int id_category){
-        // get the bd connection
-        SQLiteDatabase bd = ConnexionBd.getBd(ctx);
-        // init the object to return
-        ArrayList<Record> records = new ArrayList<>();
-        // Write sql query
-        String queryGetRecordsByUserId = "SELECT * FROM record WHERE id_user = ? AND id_category = ?";
-        // get result(s) cursor
-        Cursor cursor = bd.rawQuery(queryGetRecordsByUserId, new String[]{"" + id_user, "" + id_category});
-        while (cursor.moveToNext()) {
-            records.add(new Record(cursor.getDouble(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5)));
-        }
-        return records;
-    }
+//    public static ArrayList<Record> getCountByCategotyAndUserId(Context ctx,int id_user, int id_category){
+//        // get the bd connection
+//        SQLiteDatabase bd = ConnexionBd.getBd(ctx);
+//        // init the object to return
+//        ArrayList<Record> records = new ArrayList<>();
+//        // Write sql query
+//        String queryGetRecordsByUserId = "SELECT * FROM record WHERE id_user = ? AND id_category = ?";
+//        // get result(s) cursor
+//        Cursor cursor = bd.rawQuery(queryGetRecordsByUserId, new String[]{"" + id_user, "" + id_category});
+//        while (cursor.moveToNext()) {
+//            records.add(new Record(cursor.getDouble(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5)));
+//        }
+//        return records;
+//    }
 
     /**
      * Get all records

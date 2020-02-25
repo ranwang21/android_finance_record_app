@@ -47,31 +47,31 @@ public class RecordListAdapter extends ArrayAdapter<Record> {
         TextView description = convertView.findViewById(R.id.singlelist_description);
         description.setText(record.getDescription());
 
-        TextView category = convertView.findViewById(R.id.singlelist_category);
+        ImageView category = convertView.findViewById(R.id.singlelist_category);
         switch (record.getId_category()){
             case 1:
-                category.setText("Charges");
+                category.setImageResource(R.drawable.category_charges);
                 break;
             case 2:
-                category.setText("Entertainment");
+                category.setImageResource(R.drawable.category_entertainment);
                 break;
             case 3:
-                category.setText("Food");
+                category.setImageResource(R.drawable.category_food);
                 break;
             case 4:
-                category.setText("Clothes");
+                category.setImageResource(R.drawable.category_clothes);
                 break;
             case 5:
-                category.setText("Installment");
+                category.setImageResource(R.drawable.category_installment);
                 break;
             case 6:
-                category.setText("Miscellaneous");
+                category.setImageResource(R.drawable.category_miscellaneous);
                 break;
             case 7:
-                category.setText("Transport");
+                category.setImageResource(R.drawable.category_transport);
                 break;
             case 8:
-                category.setText("Income");
+                category.setImageResource(R.drawable.category_income);
                 break;
         }
 
